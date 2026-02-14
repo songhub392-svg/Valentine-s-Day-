@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Valentine's Day 💌</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: black;
+  overflow: hidden;
+  font-family: 'Georgia', serif;
+}
+
+/* Popup box */
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #111;
+  color: white;
+  padding: 30px 25px;
+  border-radius: 15px;
+  text-align: center;
+  z-index: 10;
+  box-shadow: 0 0 20px rgba(255, 0, 100, 0.6);
+  animation: pop 1s ease;
+}
+
+.popup h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.popup p {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+/* Heart animation */
+.heart {
+  position: absolute;
+  color: red;
+  font-size: 20px;
+  animation: floatUp linear infinite;
+  bottom: -20px;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-110vh);
+    opacity: 0;
+  }
+}
+
+@keyframes pop {
+  from {
+    transform: translate(-50%, -50%) scale(0.6);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="popup">
+  <h1>Happy Valentine’s Day 💌🌹</h1>
+  <p>My love, <b>EVIN</b> ❤️</p>
+</div>
+
+<script>
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+  heart.style.fontSize = (15 + Math.random() * 20) + "px";
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 6000);
+}
+
+setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
